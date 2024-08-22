@@ -1,10 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyPraser = require('body-parser');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const petsRoute = require('./router/pets')
-
+const petsRoute = require('./router/pets');
+const adoptedRoute = require('./router/adopted')
 
 const app = express();
 mongoose.connect('mongodb://localhost:27017/Pets-Store');
@@ -30,11 +30,12 @@ app.use((req,res,next)=>{
 
 
 app.use('/pets',petsRoute);
+app.use('/adopted',adoptedRoute);
 
 app.use((req,res,next)=>{
-    const err = new Error("Route Not Found");
-    err.status(404);
-    next(err);
+    const error = new Error("Route Not Found");
+    error.status = 404;
+    next(error);
 });
 app.use((err,req,res,next)=>{
     res.status(err.status || 500).json({
