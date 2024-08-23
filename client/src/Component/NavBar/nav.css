@@ -1,0 +1,29 @@
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.logo img {
+  height: 60px;
+  margin-right: 8px;
+}
+
+.site-title {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; 
+  font-size: 1.5em;
+  color: #333;
+  padding:15px;
+}
+  .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    
+  }
+
+  .nav-button {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Same cute font */
+  }
+  
