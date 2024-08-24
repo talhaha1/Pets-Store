@@ -108,10 +108,12 @@ const Inventory = () => {
               value={petForm.price}
               onChange={(e) => setPetForm({ ...petForm, price: e.target.value })}
             />
-            <button onClick={handleFormSubmit}>
-              {editIndex !== null ? 'Update' : 'Add'}
-            </button>
-            <button onClick={() => setShowForm(false)}>Close</button>
+            <div className="button-container">
+              <button onClick={handleFormSubmit}>
+                {editIndex !== null ? 'Update' : 'Add'}
+              </button>
+              <button onClick={() => setShowForm(false)}>Close</button>
+            </div>
           </div>
         </div>
       )}
