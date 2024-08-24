@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import './Inventory.css';
 
 const Inventory = () => {
@@ -12,7 +12,7 @@ const Inventory = () => {
     breed: '',
     price: ''
   });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem('pets', JSON.stringify(pets));
@@ -53,16 +53,16 @@ const Inventory = () => {
     setShowForm(false);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem('token');
+  //   navigate('/');
+  // };
 
   return (
     <div className="inventory-container">
       <h2>Pet Inventory</h2>
       <button onClick={handleAddPet}>Add New Pet</button>
-      <button onClick={handleLogout}>Logout</button>
+      {/* <button onClick={handleLogout}>Logout</button> */}
       <div className="pet-cards">
         {pets.length > 0 ? (
           pets.map((pet, index) => (
