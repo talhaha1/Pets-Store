@@ -110,6 +110,6 @@ p {
 
 @media (max-width: 480px) {
   .background-image {
-    background-position: center; /* Center the image for very small screens */
+    background-position: center; 
   }
 }

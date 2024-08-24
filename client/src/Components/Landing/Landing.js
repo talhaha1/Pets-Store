@@ -8,7 +8,7 @@ const Landing = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoaded(true), 300); // Delay to ensure content is ready
+    setTimeout(() => setLoaded(true), 300); 
   }, []);
 
   return (
