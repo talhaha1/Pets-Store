@@ -1,7 +1,6 @@
 // src/components/LandingPage/LandingPage.js
 import React , {useState, useEffect} from 'react';
 import './Landing.css';
-//import petImage from './LandingPage.jpg'; // Make sure the image path is correct
 import petImage from '../../Assets/Landing/imagess.avif'
 
 const Landing = () => {
