@@ -46,9 +46,6 @@ exports.users_signup =  (req, res, next) => {
             });
         });
         })
-        
-
-
     })
     .catch(err=>{
         console.log(err);

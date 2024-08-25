@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
 
 //     "name": "Muhammad Waleed",
 //     "email": "l226824@lhr.nu.edu.pk",
-//     "password": "me0wWa1eedme0w",
+//     "password": "**************",
 
 
 
