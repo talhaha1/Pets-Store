@@ -1,6 +1,6 @@
 // src/components/AdoptPets/AdoptPets.js
 import React, { useState, useEffect } from 'react';
-import jwtDecode from 'jwt-decode'; // Correct import for named export
+//import jwtDecode from 'jwt-decode'; // Correct import for named export
 import './adoption.css';
 
 const AdoptPets = () => {
