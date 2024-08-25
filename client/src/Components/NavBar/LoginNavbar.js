@@ -1,36 +1,39 @@
-// src/components/Nav/Nav.js
+// src/components/Nav/LoginNavbar.js
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Grid, Button, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../Assets/NavBar/pett.png';
 import './nav.css';
 
-const Nav = () => {
+const LoginNavbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate(); // Use React Router's navigate function
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Clear token from localStorage
+    navigate('/login'); // Redirect to login page
+  };
+
   const drawerContent = (
     <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle}>
       <List>
-        {/* Order: Home -> Login -> Signup -> Contact Us */}
-        <ListItem button component="a" href="/">
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button component="a" href="/login">
-          <ListItemText primary="Login" />
-        </ListItem>
-        <ListItem button component="a" href="/signup">
-          <ListItemText primary="Signup" />
+        <ListItem button component="a" href="/my-adoptions">
+          <ListItemText primary="My Adoptions" />
         </ListItem>
         <ListItem button component="a" href="/contact">
           <ListItemText primary="Contact Us" />
+        </ListItem>
+        <ListItem button onClick={handleLogout}>
+          <ListItemText primary="Logout" />
         </ListItem>
       </List>
     </div>
@@ -72,35 +75,14 @@ const Nav = () => {
               </>
             ) : (
               <Grid container justifyContent="flex-end" alignItems="center" sx={{ paddingRight: '40px' }}>
-                {/* Adjust the spacing here */}
                 <Grid item>
                   <Button
                     color="inherit"
-                    href="/"
+                    href="/my-adoptions"
                     sx={{ fontWeight: 'bold', color: 'white', marginLeft: '20px' }} /* Increased margin */
                     className="nav-button"
                   >
-                    Home
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button
-                    color="inherit"
-                    href="/login"
-                    sx={{ fontWeight: 'bold', color: 'white', marginLeft: '20px' }} /* Increased margin */
-                    className="nav-button"
-                  >
-                    Login
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button
-                    color="inherit"
-                    href="/signup"
-                    sx={{ fontWeight: 'bold', color: 'white', marginLeft: '20px' }} /* Increased margin */
-                    className="nav-button"
-                  >
-                    Signup
+                    My Adoptions
                   </Button>
                 </Grid>
                 <Grid item>
@@ -113,6 +95,16 @@ const Nav = () => {
                     Contact Us
                   </Button>
                 </Grid>
+                <Grid item>
+                  <Button
+                    color="inherit"
+                    onClick={handleLogout} // Handle logout
+                    sx={{ fontWeight: 'bold', color: 'white', marginLeft: '20px' }}
+                    className="nav-button"
+                  >
+                    Logout
+                  </Button>
+                </Grid>
               </Grid>
             )}
           </Grid>
@@ -122,4 +114,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default LoginNavbar;
