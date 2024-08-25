@@ -3,8 +3,10 @@ const morgan = require('morgan');
 const bodyPraser = require('body-parser');
 const mongoose = require('mongoose');
 
-const petsRoute = require('./router/pets');
-const adoptedRoute = require('./router/adopted')
+const petsRoute = require('./routers/pets');
+const adoptedRoute = require('./routers/adopted')
+const usersRoute = require('./routers/users');
+const adminRoute = require('./routers/admin');
 
 const app = express();
 mongoose.connect('mongodb://localhost:27017/Pets-Store');
@@ -31,6 +33,8 @@ app.use((req,res,next)=>{
 
 app.use('/pets',petsRoute);
 app.use('/adopted',adoptedRoute);
+app.use('/users',usersRoute);
+app.use('/admin',adminRoute);
 
 app.use((req,res,next)=>{
     const error = new Error("Route Not Found");
